@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Gradient } from './models/gradient';
 import { GradientsService } from './services/gradients.service';
 
+import NegativeHover from 'negative-hover'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,5 +15,16 @@ export class AppComponent {
 
   constructor(private gradientsService: GradientsService) {
     this.allGradients = this.gradientsService.getGradients();
+  }
+
+  ngAfterViewInit() {
+    const negativeHover = new NegativeHover('#negativeHoverTarget', {
+      target: '.gradient-anchor',
+      css: 'scale-90'
+    })
+
+    console.log(document.querySelectorAll('.gradient-anchor'))
+
+    negativeHover.init();
   }
 }
