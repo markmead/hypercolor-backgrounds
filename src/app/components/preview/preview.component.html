@@ -1,0 +1,17 @@
+<div class="relative w-screen h-screen" [id]="title">
+  <div class="absolute top-4 left-4 z-10">
+    <app-controls
+      [title]="title"
+      [(gradientDirection)]="gradientDirection"
+      (gradientDirectionChange)="setGradientDirection($event)"
+      [backgroundTarget]="backgroundElement"
+    >
+    </app-controls>
+  </div>
+
+  <div
+    class="w-full h-full absolute inset-0"
+    [ngClass]="gradientClass"
+    #backgroundElement
+  ></div>
+</div>

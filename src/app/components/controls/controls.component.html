@@ -1,0 +1,72 @@
+<div class="bg-white rounded-2xl p-6 shadow-lg max-w-sm w-screen">
+  <div class="flex items-center justify-between">
+    <h2 class="text-xl font-medium text-gray-900">
+      {{ title }}
+    </h2>
+
+    <button
+      (click)="toggleControls()"
+      class="bg-gray-100 rounded-lg w-8 h-8 inline-flex items-center justify-center focus:outline-none focus:ring"
+    >
+      <svg
+        class="w-4 h-4 transform transition-transform"
+        [ngClass]="{ '-rotate-45': !showControls }"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mt-5" *ngIf="showControls">
+    <fieldset>
+      <legend class="sr-only">Gradient direction</legend>
+
+      <div class="flex flex-wrap -m-1.5">
+        <div *ngFor="let direction of directionOptions" class="p-1.5">
+          <input
+            type="radio"
+            name="gradientDirection"
+            id="{{ title }}-{{ direction.name }}"
+            [value]="direction.className"
+            [(ngModel)]="gradientDirection"
+            (ngModelChange)="directionChange()"
+            class="hidden"
+            #radioButton
+          />
+
+          <label
+            for="{{ title }}-{{ direction.name }}"
+            class="px-3 py-1.5 rounded-full text-xs font-medium shadow-sm cursor-pointer focus:outline-none focus:ring"
+            tabindex="0"
+            [ngClass]="{
+              'bg-green-100 text-green-600':
+                gradientDirection === direction.className,
+              'bg-gray-100 text-gray-500':
+                gradientDirection !== direction.className
+            }"
+            (keydown.Space)="toggleRadioButton(radioButton, $event)"
+            (keydown.Enter)="toggleRadioButton(radioButton, $event)"
+          >
+            {{ direction.name }}
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <button
+      class="py-4 px-6 bg-green-500 text-white w-full rounded-full text-sm font-medium shadow-sm hover:bg-green-400 focus:outline-none focus:ring mt-5"
+      (click)="saveBackground()"
+    >
+      Download Background
+    </button>
+  </div>
+</div>
