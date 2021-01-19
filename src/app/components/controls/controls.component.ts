@@ -30,8 +30,8 @@ export class ControlsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.first) {
-      this.showControls = true
+    if (this.first) {
+      this.showControls = true;
     }
 
     document.addEventListener('scroll', () => {
@@ -94,7 +94,7 @@ export class ControlsComponent implements OnInit {
   private autoToggleControls(): void {
     // TODO: animate the show/hide
 
-    if(this.controlWrapper && window.innerWidth >= 768) {
+    if (this.controlWrapper && window.innerWidth >= 768) {
       const controlWrapperSize = this.controlWrapper.nativeElement.getBoundingClientRect();
 
       if (controlWrapperSize.top >= 0 && controlWrapperSize.bottom * 2 <= (window.innerHeight || document.documentElement.clientHeight)) {
