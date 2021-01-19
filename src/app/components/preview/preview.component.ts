@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Direction } from 'src/app/models/direction';
 import { DirectionsService } from 'src/app/services/directions.service';
-import { gradients } from 'src/assets/data/gradients';
 
 @Component({
   selector: 'app-preview',
@@ -11,6 +10,7 @@ import { gradients } from 'src/assets/data/gradients';
 export class PreviewComponent implements OnInit {
   @Input() className!: string;
   @Input() title!: string;
+  @Input() first!: boolean;
 
   gradientDirection!: string;
   directionOptions: Direction[];

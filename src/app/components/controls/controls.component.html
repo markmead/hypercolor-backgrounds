@@ -1,11 +1,13 @@
-<div class="w-screen max-w-sm p-6 bg-white shadow-lg rounded-2xl">
+<div
+  class="w-screen max-w-xs p-6 bg-white shadow-lg rounded-2xl"
+  #controlWrapper
+>
   <div class="flex items-center justify-between">
     <h2 class="text-xl font-medium text-gray-900">
       {{ title }}
     </h2>
 
     <button
-      #toggleControl
       (click)="toggleControls()"
       class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg focus:outline-none focus:ring"
     >

@@ -1,16 +1,17 @@
-<main class="relative">
+<main class="relative overflow-hidden">
   <app-preview
-    *ngFor="let gradient of allGradients"
+    *ngFor="let gradient of allGradients; first as first"
     [className]="gradient.className"
     [title]="gradient.title"
+    [first]="first"
   >
   </app-preview>
 
   <section
-    class="fixed inset-x-0 bottom-4 bg-white rounded-xl mx-4 z-50 bg-blurred bg-opacity-50"
+    class="fixed inset-x-0 z-50 mx-4 bg-white bg-opacity-50 bottom-4 rounded-xl bg-blurred"
   >
     <div
-      class="flex items-center overflow-x-auto hide-scrollbar h-16"
+      class="flex items-center h-16 overflow-x-auto hide-scrollbar"
       id="negativeHoverTarget"
     >
       <app-anchor

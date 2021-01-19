@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Gradient } from './models/gradient';
 import { GradientsService } from './services/gradients.service';
 
-import NegativeHover from 'negative-hover'
+import NegativeHover from 'negative-hover';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +17,11 @@ export class AppComponent {
     this.allGradients = this.gradientsService.getGradients();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     const negativeHover = new NegativeHover('#negativeHoverTarget', {
       target: '.gradient-anchor',
       css: 'scale-90'
-    })
-
-    console.log(document.querySelectorAll('.gradient-anchor'))
+    });
 
     negativeHover.init();
   }
