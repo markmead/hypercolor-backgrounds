@@ -19,6 +19,8 @@ export class ControlsComponent implements OnInit {
 
   directionOptions: Direction[];
   showControls = true;
+  imageType = 'jpeg';
+  typeOptions: string[] = ['jpeg', 'png', 'svg']
 
   constructor(private directionsService: DirectionsService) {
     this.directionOptions = this.directionsService.getDirections();
@@ -32,15 +34,13 @@ export class ControlsComponent implements OnInit {
   }
 
   public saveBackground(): void {
-    htmlToImage.toJpeg(this.backgroundTarget, { pixelRatio: 1 })
-      .then((dataUrl: string) => {
-        const fakeLink = document.createElement('a');
-
-        fakeLink.download = `${this.title}.jpeg`;
-        fakeLink.href = dataUrl;
-        fakeLink.click();
-      })
-      .catch((error) => console.error('oops, something went wrong!', error));
+    if(this.imageType === 'jpeg') {
+      this.asJPEG();
+    } else if(this.imageType === 'png') {
+      this.asPNG()
+    } else if(this.imageType === 'svg') {
+      this.asSVG()
+    }
   }
 
   public toggleControls(): void {
@@ -50,5 +50,34 @@ export class ControlsComponent implements OnInit {
   public toggleRadioButton(inputTarget: HTMLInputElement, event: Event): void {
     event?.preventDefault();
     inputTarget.click();
+  }
+
+  private asJPEG(): void {
+    htmlToImage.toJpeg(this.backgroundTarget, { pixelRatio: 1 })
+      .then((dataUrl: string) => {
+        this.downloadImage(this.title, dataUrl, 'jpeg')
+      })
+  }
+
+    private asPNG(): void {
+    htmlToImage.toPng(this.backgroundTarget, { pixelRatio: 1 })
+      .then((dataUrl: string) => {
+        this.downloadImage(this.title, dataUrl, 'png')
+      })
+  }
+
+  private asSVG(): void {
+    htmlToImage.toSvg(this.backgroundTarget)
+      .then((dataUrl: string) => {
+        this.downloadImage(this.title, dataUrl, 'svg')
+      })
+  }
+
+  private downloadImage(title: string, data: string, type: string): void {
+            const fakeLink = document.createElement('a');
+
+        fakeLink.download = `${title}.${type}`;
+        fakeLink.href = data;
+        fakeLink.click();
   }
 }
