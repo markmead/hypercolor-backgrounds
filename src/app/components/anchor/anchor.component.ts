@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-anchor',
@@ -11,8 +11,13 @@ export class AnchorComponent implements OnInit {
   @Input() first = false;
   @Input() last = false;
 
+  @Output() isLoaded = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
+    if(this.first) {
+      this.isLoaded.emit(true)
+    }
   }
 }
