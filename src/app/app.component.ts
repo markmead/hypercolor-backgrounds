@@ -10,16 +10,15 @@ import NegativeHover from 'negative-hover';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  className = 'bg-gradient-to-r from-rose-50 to-cyan-50';
   allGradients!: Gradient[];
 
   constructor(private gradientsService: GradientsService) {
-    this.allGradients = this.gradientsService.getGradients();
+    this.gradientsService.getGradients().subscribe((res: any) => this.allGradients = res.gradients)
   }
 
   ngAfterViewInit(): void {
     const negativeHover = new NegativeHover('#negativeHoverTarget', {
-      target: '.gradient-anchor',
+      target: 'a',
       css: 'scale-90'
     });
 

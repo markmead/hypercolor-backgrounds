@@ -1,4 +1,5 @@
 export interface Gradient {
   title: string;
-  className: string;
+  theme: string;
+  colors: string;
 }

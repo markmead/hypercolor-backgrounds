@@ -1,7 +1,7 @@
 <main class="relative overflow-hidden">
   <app-preview
     *ngFor="let gradient of allGradients; first as first"
-    [className]="gradient.className"
+    [className]="gradient.colors"
     [title]="gradient.title"
     [first]="first"
   >
@@ -16,7 +16,7 @@
     >
       <app-anchor
         *ngFor="let gradient of allGradients; first as first; last as last"
-        [className]="gradient.className"
+        [className]="gradient.colors"
         [title]="gradient.title"
         [first]="first"
         [last]="last"
