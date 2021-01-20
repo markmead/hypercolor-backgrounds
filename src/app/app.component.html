@@ -1,9 +1,10 @@
 <main class="relative overflow-hidden">
+  <app-banner [allGradients]="allGradients"></app-banner>
+
   <app-preview
-    *ngFor="let gradient of allGradients; first as first"
+    *ngFor="let gradient of allGradients"
     [className]="gradient.colors"
     [title]="gradient.title"
-    [first]="first"
   >
   </app-preview>
 

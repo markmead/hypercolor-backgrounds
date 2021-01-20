@@ -1,12 +1,7 @@
-<div
-  class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12"
-  [ngClass]="{ 'ml-2': first, 'mr-2': last }"
+<a
+  href="#{{ title }}"
+  class="relative flex-shrink-0 block m-1 transition-all duration-300 transform rounded-lg focus:outline-none focus:ring hover:shadow-xl hover:z-10"
+  [ngClass]="[className, sizeClass]"
+  [title]="title"
 >
-  <a
-    href="#{{ title }}"
-    class="flex-shrink-0 block w-10 h-10 transition-all duration-300 transform rounded-lg outline-none focus:ring"
-    [ngClass]="className"
-    [title]="title"
-  >
-  </a>
-</div>
+</a>

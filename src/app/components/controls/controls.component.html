@@ -1,7 +1,4 @@
-<div
-  class="w-screen max-w-xs p-6 bg-white shadow-lg rounded-2xl"
-  #controlWrapper
->
+<div class="w-screen max-w-xs p-6 bg-white shadow-lg rounded-2xl">
   <div class="flex items-center justify-between">
     <h2 class="text-xl font-medium text-gray-900">
       {{ title }}
@@ -9,7 +6,7 @@
 
     <button
       (click)="toggleControls()"
-      class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg outline-none focus:ring"
+      class="inline-flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg focus:outline-none focus:ring"
     >
       <svg
         class="w-4 h-4 transition-transform transform"
@@ -48,7 +45,7 @@
 
           <label
             for="{{ title }}-{{ direction.name }}"
-            class="px-3 py-1.5 rounded-full text-xs font-medium shadow-sm cursor-pointer outline-none focus:ring"
+            class="px-3 py-1.5 rounded-full text-xs font-medium shadow-sm cursor-pointer focus:outline-none focus:ring"
             tabindex="0"
             [ngClass]="{
               'bg-green-100 text-green-600':
@@ -82,7 +79,7 @@
     </div>
 
     <button
-      class="w-full px-6 py-4 text-sm font-medium text-white bg-green-500 rounded-full shadow-sm outline-none hover:bg-green-400 focus:ring"
+      class="w-full px-6 py-4 text-sm font-medium text-white bg-green-500 rounded-full shadow-sm focus:outline-none hover:bg-green-400 focus:ring"
       (click)="saveBackground()"
     >
       Download Background

@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Gradient } from 'src/app/models/gradient';
 
-import NegativeHover from 'negative-hover';
-
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -11,18 +9,25 @@ import NegativeHover from 'negative-hover';
 export class NavigationComponent implements OnInit {
   @Input() allGradients!: Gradient[];
 
-  isLoaded = false;
+  showNavigation = false;
 
   constructor() { }
 
-  ngOnInit(): void { }
-
-  public addHoverEffect(): void {
-    const negativeHover = new NegativeHover('#negativeHoverTarget', {
-      target: 'a',
-      css: ['opacity-50', 'scale-95']
+  ngOnInit(): void {
+    document.addEventListener('scroll', () => {
+      this.autoToggleNavigation();
     });
+   }
 
-    negativeHover.init();
+  private autoToggleNavigation(): void {
+    if (window.scrollY >= 240) {
+      if (!this.showNavigation) {
+        this.showNavigation = true;
+      }
+    } else {
+      if (this.showNavigation) {
+        this.showNavigation = false;
+      }
+    }
   }
 }

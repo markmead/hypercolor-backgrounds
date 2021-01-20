@@ -1,10 +1,9 @@
 <div class="relative w-screen h-screen" [id]="title">
   <div
-    class="absolute z-10 -translate-x-1/2 top-4 left-1/2 md:left-4 transform-gpu md:translate-x-0"
+    class="absolute z-10 -translate-x-1/2 top-8 left-1/2 md:left-8 transform-gpu md:translate-x-0"
   >
     <app-controls
       [title]="title"
-      [first]="first"
       [(gradientDirection)]="gradientDirection"
       (gradientDirectionChange)="setGradientDirection($event)"
       [backgroundTarget]="backgroundElement"

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Direction } from 'src/app/models/direction';
 import { DirectionsService } from 'src/app/services/directions.service';
 
@@ -10,34 +10,23 @@ import * as htmlToImage from 'html-to-image';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent implements OnInit {
-  @ViewChild('controlWrapper') controlWrapper!: ElementRef;
-
   @Input() className!: string;
   @Input() title!: string;
   @Input() gradientDirection!: string;
   @Input() backgroundTarget!: HTMLElement;
-  @Input() first!: boolean;
 
   @Output() gradientDirectionChange = new EventEmitter<string>();
 
   directionOptions: Direction[];
-  showControls = false;
   imageType = 'jpeg';
   typeOptions: string[] = ['jpeg', 'png', 'svg'];
+  showControls = true;
 
   constructor(private directionsService: DirectionsService) {
     this.directionOptions = this.directionsService.getDirections();
   }
 
-  ngOnInit(): void {
-    if (this.first) {
-      this.showControls = true;
-    }
-
-    document.addEventListener('scroll', () => {
-      this.autoToggleControls();
-    });
-  }
+  ngOnInit(): void { }
 
   public directionChange(): void {
     this.gradientDirectionChange.emit(this.gradientDirection);
@@ -89,19 +78,5 @@ export class ControlsComponent implements OnInit {
     fakeLink.download = `${title}.${type}`;
     fakeLink.href = data;
     fakeLink.click();
-  }
-
-  private autoToggleControls(): void {
-    // TODO: animate the show/hide
-
-    if (this.controlWrapper && window.innerWidth >= 768) {
-      const controlWrapperSize = this.controlWrapper.nativeElement.getBoundingClientRect();
-
-      if (controlWrapperSize.top >= 0 && controlWrapperSize.bottom * 2 <= (window.innerHeight || document.documentElement.clientHeight)) {
-        if (!this.showControls) {
-          this.showControls = true;
-        }
-      }
-    }
   }
 }

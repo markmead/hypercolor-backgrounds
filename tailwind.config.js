@@ -7,7 +7,7 @@ module.exports = {
       safelist: [/to-/, /from-/, /via-/],
     },
   },
-  darkMode: false,
+  darkMode: "media",
   theme: {
     extend: {
       colors: {
@@ -32,7 +32,9 @@ module.exports = {
   variants: {
     gradientColorStops: [],
     backgroundImage: [],
-    extend: {},
+    extend: {
+      zIndex: ["hover"],
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };

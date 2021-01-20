@@ -8,6 +8,7 @@ import { PreviewComponent } from './components/preview/preview.component';
 import { AnchorComponent } from './components/anchor/anchor.component';
 import { ControlsComponent } from './components/controls/controls.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     PreviewComponent,
     AnchorComponent,
     ControlsComponent,
-    NavigationComponent
+    NavigationComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

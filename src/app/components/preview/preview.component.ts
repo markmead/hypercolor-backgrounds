@@ -10,7 +10,6 @@ import { DirectionsService } from 'src/app/services/directions.service';
 export class PreviewComponent implements OnInit {
   @Input() className!: string;
   @Input() title!: string;
-  @Input() first!: boolean;
 
   gradientDirection!: string;
   directionOptions: Direction[];
