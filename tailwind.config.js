@@ -4,7 +4,7 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{html,ts}"],
     options: {
-      safelist: [/to-/, /from-/],
+      safelist: [/to-/, /from-/, /via-/],
     },
   },
   darkMode: false,
