@@ -21,7 +21,7 @@ export class NavigationComponent implements OnInit {
     const negativeHover = new NegativeHover('#negativeHoverTarget', {
       target: 'a',
       css: ['opacity-50', 'scale-95']
-    })
+    });
 
     negativeHover.init();
   }

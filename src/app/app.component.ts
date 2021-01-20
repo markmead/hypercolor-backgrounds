@@ -11,6 +11,6 @@ export class AppComponent {
   allGradients!: Gradient[];
 
   constructor(private gradientsService: GradientsService) {
-    this.gradientsService.getGradients().subscribe((res: any) => this.allGradients = res.gradients)
+    this.gradientsService.getGradients().subscribe((res: any) => this.allGradients = res.gradients);
   }
 }

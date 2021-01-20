@@ -16,8 +16,8 @@ export class AnchorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(this.first) {
-      this.isLoaded.emit(true)
+    if (this.first) {
+      this.isLoaded.emit(true);
     }
   }
 }

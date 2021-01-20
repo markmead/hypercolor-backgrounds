@@ -9,7 +9,7 @@ import { Gradient } from '../models/gradient';
 export class GradientsService {
   constructor(private http: HttpClient) { }
 
-  getGradients(): Observable<Object> {
-    return this.http.get<Gradient>('https://tailwind-hypercolor-git-expose-gradients-as-json.jordihales.vercel.app/gradients.json')
+  getGradients(): Observable<object> {
+    return this.http.get<Gradient>('https://tailwind-hypercolor-git-expose-gradients-as-json.jordihales.vercel.app/gradients.json');
   }
 }
