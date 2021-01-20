@@ -1,7 +1,12 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./src/**/*.{html,ts}", "./src/**/**/*.{html,ts}"],
+  purge: {
+    content: ["./src/**/*.{html,ts}"],
+    options: {
+      safelist: [/to-/, /from-/],
+    },
+  },
   darkMode: false,
   theme: {
     extend: {
@@ -25,6 +30,8 @@ module.exports = {
     },
   },
   variants: {
+    gradientColorStops: [],
+    backgroundImage: [],
     extend: {},
   },
   plugins: [require("@tailwindcss/forms")],
