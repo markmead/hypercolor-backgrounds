@@ -16,7 +16,6 @@ export class PreviewComponent implements OnInit {
   directions: Direction[];
 
   constructor(private directionsService: DirectionsService) {
-    this.classNames = this.colors;
     this.directions = this.directionsService.getDirections();
   }
 
@@ -26,7 +25,7 @@ export class PreviewComponent implements OnInit {
 
   public handleDirection(value: string): void {
     if (value) {
-      const colors = this.classNames.split(' ');
+      const colors = this.colors.split(' ');
       colors[0] = value;
 
       this.colors = colors.join(' ');

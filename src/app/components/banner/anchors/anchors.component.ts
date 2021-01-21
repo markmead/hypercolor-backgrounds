@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Gradient } from 'src/app/models/gradient';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
+  selector: 'app-banner-anchors',
+  templateUrl: './anchors.component.html',
+  styleUrls: ['./anchors.component.scss'],
 })
-export class BannerComponent {
+export class BannerAnchorsComponent {
   @Input() gradients!: Gradient[];
 
   constructor() {}

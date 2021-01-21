@@ -1,0 +1,33 @@
+<fieldset>
+  <legend class="sr-only">Gradient direction</legend>
+
+  <div class="flex flex-wrap -m-1.5">
+    <div *ngFor="let direction of directions" class="p-1.5">
+      <input
+        class="hidden"
+        type="radio"
+        name="direction"
+        id="{{ title }}-{{ direction.name }}"
+        [value]="direction.className"
+        (change)="handleDirection(input.value)"
+        #input
+      />
+
+      <label
+        for="{{ title }}-{{ direction.name }}"
+        class="px-3 py-1.5 rounded-full text-xs font-medium shadow-sm cursor-pointer focus:outline-none focus:ring"
+        tabindex="0"
+        [ngClass]="{
+          'bg-green-400 text-green-900':
+            selectedDirection === direction.className,
+          'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400':
+            selectedDirection !== direction.className
+        }"
+        (keydown.Space)="handleRadioClick(input, $event)"
+        (keydown.Enter)="handleRadioClick(input, $event)"
+      >
+        {{ direction.name }}
+      </label>
+    </div>
+  </div>
+</fieldset>

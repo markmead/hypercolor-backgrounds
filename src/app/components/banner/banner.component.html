@@ -1,10 +1,8 @@
-<div class="p-4 lg:flex lg:items-center lg:h-screen">
-  <div
-    class="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
-  ></div>
-
+<div
+  class="lg:p-4 lg:flex lg:items-center lg:h-screen bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
+>
   <header
-    class="relative py-16 bg-white lg:h-full lg:w-full lg:flex lg:items-center dark:bg-gray-900 rounded-3xl"
+    class="py-16 bg-white lg:h-full lg:w-full lg:flex lg:items-center dark:bg-gray-900 rounded-3xl"
     role="banner"
   >
     <div
@@ -17,12 +15,12 @@
           Hypercolor Backgrounds
         </h1>
 
-        <div class="max-w-sm mt-8 font-medium text-gray-900 dark:text-gray-100">
-          <p>
+        <div class="max-w-lg mt-8">
+          <p class="text-lg leading-relaxed text-gray-900 dark:text-gray-100">
             Get the gradients you love from
             <a
               href="https://hypercolor.dev/"
-              class="text-teal-400 hover:text-teal-300"
+              class="text-cyan-400 hover:text-cyan-300"
             >
               Hypercolor
             </a>
@@ -30,7 +28,7 @@
             beautiful premade gradients using default colors from
             <a
               href="https://tailwindcss.com/"
-              class="text-teal-400 hover:text-teal-300"
+              class="text-cyan-400 hover:text-cyan-300"
             >
               Tailwind
             </a>
@@ -40,24 +38,7 @@
       </div>
 
       <div class="mt-12 lg:mt-0">
-        <div class="relative">
-          <div
-            class="absolute inset-0 w-full h-full transform -skew-y-2 bg-gradient-to-bl from-pink-500 via-red-500 to-yellow-500 -rotate-2 rounded-3xl"
-          ></div>
-
-          <div
-            class="relative grid grid-cols-5 p-6 transform bg-gray-800 lg:grid-cols-10 rounded-3xl rotate-2"
-            [ngClass]="{ 'h-64': !gradients }"
-          >
-            <app-anchor
-              *ngFor="let gradient of gradients"
-              [colors]="gradient.colors"
-              [sizeClass]="'w-12 h-12 hover:scale-150'"
-              [title]="gradient.title"
-            >
-            </app-anchor>
-          </div>
-        </div>
+        <app-banner-anchors [gradients]="gradients"></app-banner-anchors>
 
         <p
           class="mt-4 mr-4 text-xs font-medium text-right text-gray-500 uppercase dark:text-gray-400"

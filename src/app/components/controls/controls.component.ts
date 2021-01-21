@@ -6,7 +6,7 @@ import * as htmlToImage from 'html-to-image';
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.scss']
+  styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
   @Input() direction!: string;
@@ -17,29 +17,25 @@ export class ControlsComponent implements OnInit {
   @Output() directionChange = new EventEmitter<string>();
 
   selectedDirection!: string;
-  showControls: boolean = false;
-  type: string = 'jpeg';
+  showControls = false;
+  type = 'jpeg';
   types: string[] = ['jpeg', 'png', 'svg'];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.selectedDirection = this.direction;
+  }
 
   public handleToggle(): void {
     this.showControls = !this.showControls;
   }
 
   public handleDirection(value: string): void {
-    this.selectedDirection = value;
     this.directionChange.emit(value);
   }
 
-  public handleRadioClick(inputTarget: HTMLInputElement, event: Event): void {
-    event?.preventDefault();
-    inputTarget.click();
-  }
-
-  public handleType(value: string) {
+  public handleType(value: string): void {
     this.type = value;
   }
 
@@ -54,24 +50,25 @@ export class ControlsComponent implements OnInit {
   }
 
   private saveAsJPEG(): void {
-    htmlToImage.toJpeg(this.gradient, { pixelRatio: 1 })
+    htmlToImage
+      .toJpeg(this.gradient, { pixelRatio: 1 })
       .then((dataUrl: string) => {
         this.handleDownload(this.title, dataUrl, 'jpeg');
       });
   }
 
-    private saveAsPNG(): void {
-    htmlToImage.toPng(this.gradient, { pixelRatio: 1 })
+  private saveAsPNG(): void {
+    htmlToImage
+      .toPng(this.gradient, { pixelRatio: 1 })
       .then((dataUrl: string) => {
         this.handleDownload(this.title, dataUrl, 'png');
       });
   }
 
   private saveAsSVG(): void {
-    htmlToImage.toSvg(this.gradient)
-      .then((dataUrl: string) => {
-        this.handleDownload(this.title, dataUrl, 'svg');
-      });
+    htmlToImage.toSvg(this.gradient).then((dataUrl: string) => {
+      this.handleDownload(this.title, dataUrl, 'svg');
+    });
   }
 
   private handleDownload(title: string, data: string, type: string): void {

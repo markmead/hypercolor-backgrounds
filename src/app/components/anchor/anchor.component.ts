@@ -1,16 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-anchor',
   templateUrl: './anchor.component.html',
-  styleUrls: ['./anchor.component.scss']
+  styleUrls: ['./anchor.component.scss'],
 })
-export class AnchorComponent implements OnInit {
+export class AnchorComponent {
   @Input() colors!: string;
-  @Input() sizeClass!: string;
+  @Input() size!: string;
   @Input() title!: string;
 
-  constructor() { }
-
-  ngOnInit(): void { }
+  constructor() {}
 }

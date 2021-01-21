@@ -10,6 +10,8 @@ import { AnchorComponent } from './components/anchor/anchor.component';
 import { ControlsComponent } from './components/controls/controls.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { BannerAnchorsComponent } from './components/banner/anchors/anchors.component';
+import { ControlsDirectionsComponent } from './components/controls/directions/directions.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,17 @@ import { BannerComponent } from './components/banner/banner.component';
     AnchorComponent,
     ControlsComponent,
     NavigationComponent,
-    BannerComponent
+    BannerComponent,
+    BannerAnchorsComponent,
+    ControlsDirectionsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

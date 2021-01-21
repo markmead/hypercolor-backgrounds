@@ -1,0 +1,18 @@
+<div class="relative">
+  <div
+    class="absolute inset-0 w-full h-full transform -skew-y-2 bg-gradient-to-bl from-pink-500 via-red-500 to-yellow-500 -rotate-2 rounded-3xl"
+  ></div>
+
+  <div
+    class="relative grid grid-cols-5 p-6 transform bg-gray-800 lg:grid-cols-10 rounded-3xl rotate-2"
+    [ngClass]="{ 'h-64': !gradients }"
+  >
+    <app-anchor
+      *ngFor="let gradient of gradients"
+      [colors]="gradient.colors"
+      [size]="'w-12 h-12 hover:scale-150'"
+      [title]="gradient.title"
+    >
+    </app-anchor>
+  </div>
+</div>
