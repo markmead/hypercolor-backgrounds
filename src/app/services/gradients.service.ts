@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { Gradient } from '../models/gradient';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GradientsService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getGradients(): Observable<object> {
-    return this.http.get<Gradient>('https://tailwind-hypercolor-git-expose-gradients-as-json.jordihales.vercel.app/gradients.json');
+    return this.http.get<Gradient>('https://hypercolor.dev/gradients.json');
   }
 }
