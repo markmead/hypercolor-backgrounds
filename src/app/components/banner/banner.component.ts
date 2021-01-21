@@ -7,9 +7,7 @@ import { Gradient } from 'src/app/models/gradient';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
-  @Input() allGradients!: Gradient[];
-
-  isLoaded = false;
+  @Input() gradients!: Gradient[];
 
   constructor() { }
 

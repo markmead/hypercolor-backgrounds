@@ -1,12 +1,12 @@
 <main class="relative overflow-hidden">
-  <app-banner [allGradients]="allGradients"></app-banner>
+  <app-banner [gradients]="gradients"></app-banner>
 
   <app-preview
-    *ngFor="let gradient of allGradients"
-    [className]="gradient.colors"
+    *ngFor="let gradient of gradients"
+    [colors]="gradient.colors"
     [title]="gradient.title"
   >
   </app-preview>
 
-  <app-navigation [allGradients]="allGradients"></app-navigation>
+  <app-navigation [gradients]="gradients"></app-navigation>
 </main>

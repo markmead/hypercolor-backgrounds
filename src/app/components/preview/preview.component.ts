@@ -8,38 +8,28 @@ import { DirectionsService } from 'src/app/services/directions.service';
   styleUrls: ['./preview.component.scss']
 })
 export class PreviewComponent implements OnInit {
-  @Input() className!: string;
+  @Input() colors!: string;
   @Input() title!: string;
 
-  gradientDirection!: string;
-  directionOptions: Direction[];
-  gradientClass!: string;
+  classNames!: string;
+  direction!: string;
+  directions: Direction[];
 
   constructor(private directionsService: DirectionsService) {
-    this.directionOptions = this.directionsService.getDirections();
+    this.classNames = this.colors;
+    this.directions = this.directionsService.getDirections();
   }
 
   ngOnInit(): void {
-    this.gradientClass = this.className;
-    this.gradientDirection = this.getDirection();
+    this.direction = this.colors.split(' ')[0];
   }
 
-  public setGradientDirection(value: string): void {
+  public handleDirection(value: string): void {
     if (value) {
-      const classNameArray = this.className.split(' ');
-      classNameArray[0] = value;
+      const colors = this.classNames.split(' ');
+      colors[0] = value;
 
-      this.gradientClass = classNameArray.join(' ');
+      this.colors = colors.join(' ');
     }
-  }
-
-  private getDirection(): string {
-    let gradientDirection = '';
-
-    if (this.className) {
-      const classNameArray = this.className.split(' ');
-      gradientDirection = classNameArray[0];
-    }
-    return gradientDirection;
   }
 }

@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./anchor.component.scss']
 })
 export class AnchorComponent implements OnInit {
-  @Input() className!: string;
+  @Input() colors!: string;
   @Input() sizeClass!: string;
   @Input() title!: string;
 

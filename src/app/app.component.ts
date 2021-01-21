@@ -8,9 +8,9 @@ import { GradientsService } from './services/gradients.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  allGradients!: Gradient[];
+  gradients!: Gradient[];
 
   constructor(private gradientsService: GradientsService) {
-    this.gradientsService.getGradients().subscribe((res: any) => this.allGradients = res.gradients);
+    this.gradientsService.getGradients().subscribe((response: any) => this.gradients = response.gradients);
   }
 }

@@ -4,16 +4,17 @@
   >
     <app-controls
       [title]="title"
-      [(gradientDirection)]="gradientDirection"
-      (gradientDirectionChange)="setGradientDirection($event)"
-      [backgroundTarget]="backgroundElement"
+      [gradient]="gradient"
+      [directions]="directions"
+      [(direction)]="direction"
+      (directionChange)="handleDirection($event)"
     >
     </app-controls>
   </div>
 
   <div
     class="absolute inset-0 w-full h-full"
-    [ngClass]="gradientClass"
-    #backgroundElement
+    [ngClass]="colors"
+    #gradient
   ></div>
 </div>
