@@ -5,7 +5,6 @@ import { DirectionsService } from 'src/app/services/directions.service';
 @Component({
   selector: 'app-preview',
   templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.scss']
 })
 export class PreviewComponent implements OnInit {
   @Input() colors!: string;

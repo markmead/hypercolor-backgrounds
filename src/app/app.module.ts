@@ -1,36 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PreviewComponent } from './components/preview/preview.component';
-import { AnchorComponent } from './components/anchor/anchor.component';
-import { ControlsComponent } from './components/controls/controls.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { BannerComponent } from './components/banner/banner.component';
 import { BannerAnchorsComponent } from './components/banner/anchors/anchors.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { ControlsComponent } from './components/controls/controls.component';
 import { ControlsDirectionsComponent } from './components/controls/directions/directions.component';
+import { PreviewComponent } from './components/preview/preview.component';
+
+import { AnchorModule } from './anchor/anchor.module';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PreviewComponent,
-    AnchorComponent,
     ControlsComponent,
-    NavigationComponent,
     BannerComponent,
     BannerAnchorsComponent,
     ControlsDirectionsComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    NavigationModule,
+    AnchorModule
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

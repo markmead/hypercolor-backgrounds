@@ -3,8 +3,7 @@ import { Gradient } from 'src/app/models/gradient';
 
 @Component({
   selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
+  templateUrl: './banner.component.html'
 })
 export class BannerComponent {
   @Input() gradients!: Gradient[];

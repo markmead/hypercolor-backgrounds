@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-anchor',
-  styleUrls: ['./anchor.component.scss'],
   template: `
     <a
       href="#{{ title }}"
@@ -17,6 +16,4 @@ export class AnchorComponent {
   @Input() colors!: string;
   @Input() size!: string;
   @Input() title!: string;
-
-  constructor() {}
 }
